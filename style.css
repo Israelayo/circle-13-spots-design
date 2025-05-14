@@ -1,0 +1,16 @@
+body {
+    background:  #FCF5E5;
+    width: 320;
+    height: 2524;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: #FFFFFFCC;
+    width: 100%;
+    height: 46px;
+    display: flex;
+    justify-content: space-between;
+   
+}
