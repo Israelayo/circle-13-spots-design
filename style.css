@@ -1,16 +1,234 @@
-body {
-  background: #fcf5e5;
-  width: 320;
-  height: 2524;
-  margin: 0;
-  padding-left: 10px;
-}
-.logo {
-  text-align: center;
-  background-color: white;
+/* CSS RESET START */
+
+/* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
-.top {
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+  /* 4. Add accessible line-height */
+  line-height: 1.5;
+  /* 5. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 6. Improve media defaults */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 7. Inherit fonts for form controls */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* 8. Avoid text overflows */
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* 9. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+/*
+  10. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}
+
+/* CSS RESET END  */
+
+body {
+  background: #fcf5e5;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  background-color: white;
+  width: 100%;
+  height: auto;
+}
+
+.hero-section{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 2rem;
+  position: relative;
+}
+
+.hero-img img{
+  width: 190px;
+  height: 190px;
+  object-fit: cover;
+}
+
+.hero-text{
+  flex: 1;
+  min-width: 200px;
+  position: relative;
+  height: 190px;
+}
+
+.hero-text h1{
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 2rem;
+  line-height: 100%;
+  color: #212121;
+}
+
+.hero-text p{
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 100%;
+  color: #212121b3;
+  padding-top: 10px;
+}
+
+.edit{
+  position: absolute;
+  bottom: 0;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 100%;
+  color: #212121b3;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.edit:hover{
+  color: #212121;
+}
+
+.hero-btn{
+  align-self: flex-end;
+}
+
+.new-post-btn{
+  width: 149px;
+  height: 52px;
+  background-color: #212121;
+  border-radius: 8px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 100%;
+  color: #FCF5E5;
+  border: none;
+  cursor: pointer;
+}
+
+.new-post-btn:hover{
+  background-color: #212121;
+  opacity: 80%;
+}
+
+hr{
+  margin-right: 2rem;
+  margin-left: 2rem;
+}
+
+
+@media (max-width: 430px){
+  .hero-section{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-img img{
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+}
+
+  .hero-text{
+    position: static;
+  }
+
+  .hero-text h1{
+    text-align: center;
+     font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 100%;
+  color: #212121;
+  }
+
+  .hero-text p{
+    text-align: center;
+  }
+
+  .edit{
+    position: static;
+    align-self: center;  
+  }
+
+  .edit-profile{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2.5rem;
+  }
+
+  .hero-btn{
+    align-self: center;
+  }
+
+  .new-post-btn{
+  width: 288px;
+  height: 52px;
+  background-color: #212121;
+  border-radius: 8px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 100%;
+  color: #FCF5E5;
+  border: none;
+  cursor: pointer;
+}
+}
+
+
+
+
+
+
+
+
+
+
+/* 
+THIS IS COURAGE AND MERCY CODE COMMENTED OUT */
+/* .top {
   display: flex;
 }
 
@@ -93,4 +311,4 @@ header {
     padding: 0 10px 30px 10px;
     gap: 15px;
   }
-}
+} */
