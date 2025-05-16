@@ -36,9 +36,14 @@ header {
   height: 60px;
   margin-top: 150px;
   border-radius: 10px;
-  background-color: black;
+  background-color: #212121;
   color: white;
   width: 120px;
+}
+
+.button:hover {
+    background-color: #212121;
+    opacity: 80%;
 }
 
 #img-layout-ctn {
