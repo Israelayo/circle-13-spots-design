@@ -1,7 +1,9 @@
 /* CSS RESET START
 
 /* 1. Use a more-intuitive box-sizing model */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -25,18 +27,31 @@ body {
 }
 
 /* 6. Improve media defaults */
-img, picture, video, canvas, svg {
+img,
+picture,
+video,
+canvas,
+svg {
   display: block;
   max-width: 100%;
 }
 
 /* 7. Inherit fonts for form controls */
-input, button, textarea, select {
+input,
+button,
+textarea,
+select {
   font: inherit;
 }
 
 /* 8. Avoid text overflows */
-p, h1, h2, h3, h4, h5, h6 {
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   overflow-wrap: break-word;
 }
 
@@ -44,16 +59,22 @@ p, h1, h2, h3, h4, h5, h6 {
 p {
   text-wrap: pretty;
 }
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   text-wrap: balance;
 }
 
 /*
   10. Create a root stacking context
 */
-#root, #__next {
+#root,
+#__next {
   isolation: isolate;
-} 
+}
 
 /* CSS RESET END  */
 
@@ -77,7 +98,7 @@ body {
   margin: auto;
 }
 
-.hero-section{
+.hero-section {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
@@ -87,20 +108,20 @@ body {
   position: relative;
 }
 
-.hero-img img{
+.hero-img img {
   width: 190px;
   height: 190px;
   object-fit: cover;
 }
 
-.hero-text{
+.hero-text {
   flex: 1;
   min-width: 200px;
   position: relative;
   height: 190px;
 }
 
-.hero-text h1{
+.hero-text h1 {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-size: 2rem;
@@ -108,7 +129,7 @@ body {
   color: #212121;
 }
 
-.hero-text p{
+.hero-text p {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-size: 1rem;
@@ -117,7 +138,7 @@ body {
   padding-top: 10px;
 }
 
-.edit{
+.edit {
   position: absolute;
   bottom: 0;
   font-family: "Poppins", sans-serif;
@@ -129,15 +150,15 @@ body {
   cursor: pointer;
 }
 
-.edit:hover{
+.edit:hover {
   color: #212121;
 }
 
-.hero-btn{
+.hero-btn {
   align-self: flex-end;
 }
 
-.new-post-btn{
+.new-post-btn {
   width: 149px;
   height: 52px;
   background-color: #212121;
@@ -146,242 +167,142 @@ body {
   font-weight: 500;
   font-size: 1rem;
   line-height: 100%;
-  color: #FCF5E5;
+  color: #fcf5e5;
   border: none;
   cursor: pointer;
 }
 
-.new-post-btn:hover{
+.new-post-btn:hover {
   background-color: #212121;
   opacity: 80%;
 }
 
-hr{
+hr {
   margin-right: 2rem;
   margin-left: 2rem;
 }
 
 .card-section {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, auto);
-    gap: 15px;
-    margin: 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 15px;
+  margin: 2rem;
 }
 
-.card_text img {
-    width: 20px;
-    height: 20px;
-    margin-right: 10px;
-    color: #212121;
-    opacity: 40%;
-    
+.card_text p {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 1.25rem;
+  line-height: 120%;
+  color: #212121;
 }
-   
+
+.fa-heart {
+  color: #212121;
+  cursor: pointer;
+  opacity: 0.4;
+}
+
 .fa-heart:hover {
-    color: #212121;
-    cursor: pointer;
-    opacity: 40%;
-}
-
-.card_text img:hover {
-    color: #212121;
-    cursor: pointer;
-    opacity: 100%;
+  color: #212121;
+  cursor: pointer;
+  opacity: 1;
 }
 
 section > * {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
-    
-    .card-section > * img {
-        width: 100%;
-        border-radius: 8px;
-    }
-    
-    .card-section .card_text {
-        display: flex;
-        justify-content: space-between;
-        font-size: 20px;
-        letter-spacing: 0%;
-        line-height: 120%;
-        font-weight: 500;
-        color: #212121;
-        margin-top: 10px;
-    }
+
+.card-section > * img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.card-section .card_text {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  letter-spacing: 0%;
+  line-height: 120%;
+  font-weight: 500;
+  color: #212121;
+  margin-top: 10px;
+}
 
 footer {
-  background-color: #fcf5e5;
-  padding: 1rem 2rem;
-  text-align: center;
-  font-size: 0.9rem;
-  color: #333;
   font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 100%;
+  color: #212121;
+  opacity: 70%;
+  padding: 2.5rem 2rem;
+  text-align: center;
 }
 
-@media (max-width: 430px){
-  .hero-section{
+@media (max-width: 430px) {
+  .hero-section {
     flex-direction: column;
     align-items: center;
     justify-content: center;
   }
 
-  .hero-img img{
-  width: 80px;
-  height: 80px;
-  object-fit: cover;
-}
+  .hero-img img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+  }
 
-  .hero-text{
+  .hero-text {
     position: static;
   }
 
-  .hero-text h1{
+  .hero-text h1 {
     text-align: center;
-     font-family: "Poppins", sans-serif;
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 100%;
-  color: #212121;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 100%;
+    color: #212121;
   }
 
-  .hero-text p{
+  .hero-text p {
     text-align: center;
   }
 
-  .edit{
+  .edit {
     position: static;
-    align-self: center;  
+    align-self: center;
   }
 
-  .edit-profile{
+  .edit-profile {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 2.5rem;
   }
 
-  .hero-btn{
+  .hero-btn {
     align-self: center;
   }
 
-  .new-post-btn{
-  width: 288px;
-  height: 52px;
-  background-color: #212121;
-  border-radius: 8px;
-  font-family: "Poppins", sans-serif;
-  font-weight: 500;
-  font-size: 1rem;
-  line-height: 100%;
-  color: #FCF5E5;
-  border: none;
-  cursor: pointer;
-}
+  .new-post-btn {
+    width: 288px;
+    height: 52px;
+    background-color: #212121;
+    border-radius: 8px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 100%;
+    color: #fcf5e5;
+    border: none;
+    cursor: pointer;
+  }
 
   .card-section {
-  grid-template-columns: 1fr;
-  grid-template-rows:  auto;
-}
-}
-
-
-
-
-
-
-
-
-
-
-/* 
-THIS IS COURAGE AND MERCY CODE COMMENTED OUT */
-/* .top {
-  display: flex;
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-}
-
-header {
-  border-bottom: 1px solid black;
-  padding: 20px 0px;
-}
-
-.edit {
-  text-decoration: none;
-  margin-top: 80px;
-  display: inline-block;
-  color: black;
-  margin-left: 10px;
-}
-
-.button {
-  height: 60px;
-  margin-top: 150px;
-  border-radius: 10px;
-  background-color: #212121;
-  color: white;
-  width: 120px;
-}
-
-.button:hover {
-    background-color: #212121;
-    opacity: 80%;
-}
-
-#img-layout-ctn {
-  display: flex;
-  flex-wrap: wrap;
-  max-width: var(--layout-width);
-  gap: 20px;
-  padding: 40px 20px 40px 20px;
-  border-bottom: 1px solid grey;
-  box-sizing: border-box;
-}
-
-.img-ctn {
-  background-color: var(--bg-color);
-  min-width: 200px;
-  height: 445px;
-  max-width: 413px;
-  border-radius: 8px;
-  flex-grow: 1;
-  flex-basis: 100%;
-}
-
-.img img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-.img-txt-icon {
-  display: flex;
-  justify-content: space-between;
-  background-color:#fcf5e5;
-  align-items: center;
-  padding: 12px 16px;
-}
-
-.img-txt-icon p {
-  margin: 0;
-  font-size: 20px;
-  font-weight: 500;
-}
-
-.img-txt-icon i {
-  font-size: 1.1rem;
-  color: #333;
-  cursor: pointer;
-}
-@media (max-width: 600px) {
-  #img-layout-ctn {
-    padding: 0 10px 30px 10px;
-    gap: 15px;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
   }
-} */
+}
