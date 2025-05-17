@@ -71,6 +71,12 @@ body {
   height: auto;
 }
 
+.logo-section img {
+  width: 94px;
+  height: 26px;
+  margin: auto;
+}
+
 .hero-section{
   display: flex;
   flex-wrap: wrap;
@@ -155,12 +161,12 @@ hr{
   margin-left: 2rem;
 }
 
-section {
+.card-section {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, auto);
     gap: 15px;
-    margin: 30px;
+    margin: 2rem;
 }
 
 .card_text img {
@@ -182,12 +188,12 @@ section > * {
     margin-bottom: 20px;
 }
     
-    section > * img {
+    .card-section > * img {
         width: 100%;
-        border-radius: 10px;
+        border-radius: 8px;
     }
     
-    section .card_text {
+    .card-section .card_text {
         display: flex;
         justify-content: space-between;
         font-size: 20px;
@@ -259,7 +265,7 @@ section > * {
   cursor: pointer;
 }
 
-  section {
+  .card-section {
   grid-template-columns: 1fr;
   grid-template-rows:  auto;
 }
