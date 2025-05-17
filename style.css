@@ -177,7 +177,13 @@ hr{
     opacity: 40%;
     
 }
-    
+   
+.fa-heart:hover {
+    color: #212121;
+    cursor: pointer;
+    opacity: 40%;
+}
+
 .card_text img:hover {
     color: #212121;
     cursor: pointer;
