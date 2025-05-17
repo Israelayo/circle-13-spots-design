@@ -279,6 +279,12 @@ footer {
 }
 }
 
+.fa-heart:hover{
+    color: #212121;
+    cursor: pointer;
+    opacity: 4git 0%;
+    
+}
 
 
 
