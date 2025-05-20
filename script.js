@@ -37,7 +37,7 @@ const cardsData = [
   },
 ];
 
-const container = document.getElementById("cardsContainer");
+const container = document.querySelector(".card-section");
 
 cardsData.forEach((card) => {
   const cardDiv = document.createElement("div");
