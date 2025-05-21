@@ -93,6 +93,11 @@ header {
   color: #333;
   cursor: pointer;
 }
+
+footer{
+   text-align: center;
+}
+
 @media (max-width: 600px) {
   #img-layout-ctn {
     padding: 0 10px 30px 10px;
