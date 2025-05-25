@@ -1,7 +1,7 @@
 # 🌍 Spots App – Circle 13 Team Project
 
 Welcome to the Spots App project, built by Circle 13 students at AltSchool Africa, School of Engineering.  
-Originally a simple HTML + CSS replication of a Figma design, the project now includes some JavaScript functionality and plans are underway to convert the app to React.
+Originally a simple HTML + CSS replication of a Figma design, the project now includes some JavaScript functionality.
 
 ## 📌 Project Overview
 
