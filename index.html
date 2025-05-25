@@ -1,103 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>spot</title>
-</head>
-<body>
-  <div class="logo">
-  <img src="Logo.svg" alt="Logo">
-  </div>
-  
-  <header>
-  <div class="header">
-  <div class="top">
-    <img src="Avatar.png" height="200px " alt="Bessie Colman" />
-    <div class="header-2">
-      <h1>Bessie Colman</h1>
-      <p>Civil Aviator</p>
-      <a href="" class="edit"><i class="fa-solid fa-pencil"></i> Edit Profile </a>
-    </div>
-  </div>
-  <button class="button"><i class="fa-solid fa-plus"></i> New post</button>
-  </div>
-  </header>
-
-  <section id="img-layout-ctn">
-    <div class="img-ctn">
-      <div class="img">
-        <img src="/assets/pexels-kassandre-pedro-8639743 1.png" alt="val thorens" />
-      </div>
-      <div class="img-txt-icon">
-        <p>Val Thorens</p>
-        <i class="fa-regular fa-heart"></i>
-      </div>
-    </div>
-
-    <div class="img-ctn">
-      <div class="img">
-        <img src="/Assets/pexels-kassandre-pedro-8639743 2.png" alt="restaurant terrace" />
-      </div>
-      <div class="img-txt-icon">
-        <p>Restaurant terrace</p>
-        <i class="fa-regular fa-heart"></i>
-      </div>
-    </div>
-
-    <div class="img-ctn">
-      <div class="img">
-        <img src="/Assets/pexels-kassandre-pedro-8639743 3.png" alt="outdoor cafe" />
-      </div>
-      <div class="img-txt-icon">
-        <p>An outdoor cafe</p>
-        <i class="fa-regular fa-heart"></i>
-      </div>
-    </div>
-
-    <div class="img-ctn">
-      <div class="img">
-        <img src="/Assets/pexels-kassandre-pedro-8639743 4.png" alt="forrest bridge" />
-      </div>
-      <div class="img-txt-icon">
-        <p>A very long bridge, over the forrest</p>
-        <i class="fa-regular fa-heart"></i>
-      </div>
-    </div>
-
-    <div class="img-ctn">
-      <div class="img">
-        <img src="/Assets/pexels-kassandre-pedro-8639743 5.png" alt="Hallway" />
-      </div>
-      <div class="img-txt-icon">
-        <p>Tunnel with the Morning light</p>
-        <i class="fa-regular fa-heart"></i>
-      </div>
-    </div>
-
-    <div class="img-ctn">
-      <div class="img">
-        <img src="/Assets/pexels-kassandre-pedro-8639743 6.png" alt="A house"/>
-      </div>
-      <div class="img-txt-icon">
-        <p>Mountain House</p>
-        <i class="fa-regular fa-heart"></i>
-      </div>
-    </div>
-   </section>
-  </main>
-
-  <footer>
-      2023 © Spots
-  </footer>
-
-  <script src="editProfile.js"></script>
-</body>
-</html>
-=======
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -154,13 +56,58 @@
     <footer>
       <p>2023 © Spot</p>
     </footer>
-    <div id="imageModal" class="modal">
-      <div class="modal-content-wrapper">
-        <span class="close">&times;</span>
-        <img id="modalImage" class="modal-img" alt="">
-        <p id="modalCaption" class="modal-caption"></p>
+
+    <!-- Edit Profile Modal -->
+    <div id="editProfileModal" class="modal" tabindex="-1" aria-hidden="true">
+      <div class="modal-content">
+        <span class="close" data-close="editProfileModal">&times;</span>
+        <h2>Edit Profile</h2>
+        <form id="editProfileForm" autocomplete="off">
+          <label>
+            Name
+            <input type="text" id="profileName" minlength="2" maxlength="30" required />
+          </label>
+          <label>
+            Profession
+            <input type="text" id="profileProfession" minlength="2" maxlength="30" required />
+          </label>
+          <label>
+            Image
+            <input type="file" id="profileAvatar" accept="image/*" />
+          </label>
+          <button type="submit" id="saveProfileBtn">Save</button>
+        </form>
       </div>
     </div>
+
+    <!-- Image Preview Modal -->
+    <div id="previewModal" class="modal" tabindex="-1" aria-hidden="true">
+      <div class="modal-content image-preview">
+        <span class="close" data-close="previewModal">&times;</span>
+        <img id="previewImg" src="" alt="Preview" />
+        <p id="previewTitle"></p>
+      </div>
+    </div>
+
+    <!-- New Post Modal -->
+    <div id="newPostModal" class="modal" tabindex="-1" aria-hidden="true">
+      <div class="modal-content">
+        <span class="close" data-close="newPostModal">&times;</span>
+        <h2>New Post</h2>
+        <form id="newPostForm" autocomplete="off">
+          <label>
+            Title
+            <input type="text" id="newPostTitle" minlength="2" maxlength="30" required />
+          </label>
+          <label>
+            Image
+            <input type="file" id="newPostImage" accept="image/*" required />
+          </label>
+          <button type="submit" id="createPostBtn" disabled>Create</button>
+        </form>
+      </div>
+    </div>
+
     <script src="script.js"></script>
   </body>
 </html>

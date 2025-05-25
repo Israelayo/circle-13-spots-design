@@ -1,6 +1,4 @@
-const savedCards = localStorage.getItem('card');
-let cardsData = savedCards ? JSON.parse(savedCards) :
- [
+const cardsData = [
   {
     className: "card__1",
     imageSrc: "assets/pexels-kassandre-pedro-8639743 1.png",
@@ -48,66 +46,156 @@ let cardsData = savedCards ? JSON.parse(savedCards) :
 
 const container = document.querySelector(".card-section");
 
-const modal = document.getElementById("imageModal");
-const modalImg = document.getElementById("modalImage");
-const modalCaption = document.getElementById("modalCaption");
-const closeBtn = document.querySelector(".close");
+// Render cards
+function renderCards() {
+  container.innerHTML = "";
+  cardsData.forEach((card, idx) => {
+    const cardDiv = document.createElement("div");
+    cardDiv.className = card.className + " card";
+    cardDiv.innerHTML = `
+      <div class="card-img-container" style="cursor:pointer">
+        <img src="${card.imageSrc}" alt="${card.alt}" data-idx="${idx}" />
+      </div>
+      <div class="card_text">
+        <p>
+        ${card.text}
+        </p>
+        <i class="fa-regular fa-heart" tabindex="0" aria-label="Like"></i>
+      </div>
+    `;
+    container.appendChild(cardDiv);
 
-function enableModal() {
-  const images = document.querySelectorAll(".card-section img");
+    // Heart icon toggle
+    const heartIcon = cardDiv.querySelector(".fa-heart");
+    heartIcon.addEventListener("click", function () {
+      this.classList.toggle("fa-regular");
+      this.classList.toggle("fa-solid");
+      this.style.color = this.classList.contains("fa-solid") ? "red" : "";
+    });
 
-  images.forEach((img, idx) => {
-    img.addEventListener("click", () => {
-      modal.style.display = "flex";
-      modalImg.src = cardsData[idx].imageSrc;
-      modalImg.alt = cardsData[idx].alt;
-      modalCaption.textContent = cardsData[idx].text;
+    // Preview modal on image click
+    cardDiv.querySelector("img").addEventListener("click", function () {
+      openPreviewModal(card.imageSrc, card.text);
     });
   });
+}
+renderCards();
 
-  closeBtn.onclick = () => {
-    modal.style.display = "none";
-  };
+// Modal helpers
+function openModal(id) {
+  const modal = document.getElementById(id);
+  modal.classList.add("active");
+  modal.setAttribute("aria-hidden", "false");
+  setTimeout(() => {
+    const firstInput = modal.querySelector("input,button,textarea,select");
+    if (firstInput) firstInput.focus();
+  }, 100);
+  // Esc key closes modal
+  function escHandler(e) {
+    if (e.key === "Escape") closeModal(id);
+  }
+  modal._escHandler = escHandler;
+  window.addEventListener("keydown", escHandler);
+  // Click outside closes modal
+  modal.addEventListener("mousedown", function outsideClick(e) {
+    if (e.target === modal) closeModal(id);
+  });
+}
+function closeModal(id) {
+  const modal = document.getElementById(id);
+  modal.classList.remove("active");
+  modal.setAttribute("aria-hidden", "true");
+  window.removeEventListener("keydown", modal._escHandler);
+}
 
-  window.onclick = (e) => {
-    if (e.target === modal) {
-      modal.style.display = "none";
+// Close modal on X click
+document.querySelectorAll(".modal .close").forEach(btn => {
+  btn.addEventListener("click", function () {
+    closeModal(this.dataset.close);
+  });
+});
+
+// 1. Edit Profile Modal
+document.querySelector('.edit-profile .edit').addEventListener('click', function (e) {
+  e.preventDefault();
+  // Prefill modal
+  const heroSection = document.querySelector('.hero-section');
+  const nameEl = heroSection.querySelector('.hero-text h1');
+  const professionEl = heroSection.querySelector('.hero-text p');
+  const imgEl = heroSection.querySelector('.hero-img img');
+  document.getElementById("profileName").value = nameEl.textContent;
+  document.getElementById("profileProfession").value = professionEl.textContent;
+  document.getElementById("profileAvatar").value = "";
+  openModal("editProfileModal");
+  // Save handler
+  const form = document.getElementById("editProfileForm");
+  form.onsubmit = function (ev) {
+    ev.preventDefault();
+    // Validation
+    const name = form.profileName.value.trim();
+    const profession = form.profileProfession.value.trim();
+    if (name.length < 2 || profession.length < 2) {
+      alert("Minimum 5 characters required.");
+      return;
     }
+    nameEl.textContent = name;
+    professionEl.textContent = profession;
+    const file = form.profileAvatar.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        imgEl.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+    closeModal("editProfileModal");
   };
-}
-function renderCard () {
-  container.innerHTML= ""
-cardsData.forEach((card, index) => {
-  const cardDiv = document.createElement("div");
-  cardDiv.className = card.className;
-
-  cardDiv.innerHTML = `
-    <div>
-      <img src="${card.imageSrc}" alt="${card.alt}" />
-    </div>
-    <div class="card_text">
-      <p>${card.text}</p>
-      <i class="${card.liked ? 'fa-solid' : 'fa-regular'} fa-heart" 
-         style ="color: ${card.liked ? "red" : ""}"
-         data-index="${index}"></i>
-    </div>
-  `;
-
-  container.appendChild(cardDiv);
 });
 
-const heartIcon = document.querySelectorAll('.fa-heart');
+// 2. Image Preview Modal
+function openPreviewModal(src, title) {
+  document.getElementById("previewImg").src = src;
+  document.getElementById("previewTitle").textContent = title;
+  openModal("previewModal");
+}
 
-heartIcon.forEach((icon) => {
-    icon.addEventListener('click', () => {
-        const index = icon.getAttribute("data-index");
-        cardsData[index].liked = !cardsData[index].liked;
+// 3. New Post Modal
+document.querySelector(".new-post-btn").addEventListener("click", function () {
+  document.getElementById("newPostForm").reset();
+  document.getElementById("createPostBtn").disabled = true;
+  openModal("newPostModal");
+});
 
-        localStorage.setItem('card', JSON.stringify(cardsData))
-        
-        renderCard();
+// Validate new post form
+const newPostForm = document.getElementById("newPostForm");
+const newPostTitle = document.getElementById("newPostTitle");
+const newPostImage = document.getElementById("newPostImage");
+const createPostBtn = document.getElementById("createPostBtn");
+
+function validateNewPost() {
+  const titleValid = newPostTitle.value.trim().length >= 2 && newPostTitle.value.trim().length <= 30;
+  const imgValid = newPostImage.files.length > 0;
+  createPostBtn.disabled = !(titleValid && imgValid);
+}
+newPostTitle.addEventListener("input", validateNewPost);
+newPostImage.addEventListener("change", validateNewPost);
+
+// Handle new post submit
+newPostForm.onsubmit = function (e) {
+  e.preventDefault();
+  const title = newPostTitle.value.trim();
+  const file = newPostImage.files[0];
+  if (title.length < 2 || !file) return;
+  const reader = new FileReader();
+  reader.onload = function (ev) {
+    cardsData.unshift({
+      className: "card__" + (cardsData.length + 1),
+      imageSrc: ev.target.result,
+      alt: "user_post",
+      text: title,
     });
-});
-enableModal();
-}
-renderCard();
+    renderCards();
+    closeModal("newPostModal");
+  };
+  reader.readAsDataURL(file);
+}; 
