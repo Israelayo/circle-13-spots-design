@@ -48,6 +48,33 @@ let cardsData = savedCards ? JSON.parse(savedCards) :
 
 const container = document.querySelector(".card-section");
 
+const modal = document.getElementById("imageModal");
+const modalImg = document.getElementById("modalImage");
+const modalCaption = document.getElementById("modalCaption");
+const closeBtn = document.querySelector(".close");
+
+function enableModal() {
+  const images = document.querySelectorAll(".card-section img");
+
+  images.forEach((img, idx) => {
+    img.addEventListener("click", () => {
+      modal.style.display = "flex";
+      modalImg.src = cardsData[idx].imageSrc;
+      modalImg.alt = cardsData[idx].alt;
+      modalCaption.textContent = cardsData[idx].text;
+    });
+  });
+
+  closeBtn.onclick = () => {
+    modal.style.display = "none";
+  };
+
+  window.onclick = (e) => {
+    if (e.target === modal) {
+      modal.style.display = "none";
+    }
+  };
+}
 function renderCard () {
   container.innerHTML= ""
 cardsData.forEach((card, index) => {
@@ -81,5 +108,6 @@ heartIcon.forEach((icon) => {
         renderCard();
     });
 });
+enableModal();
 }
 renderCard();
