@@ -218,6 +218,7 @@ section > * {
 .card-section > * img {
   width: 100%;
   border-radius: 8px;
+  height: 400px;
 }
 
 .card-section .card_text {
@@ -242,6 +243,75 @@ footer {
   text-align: center;
 }
 
+input{
+  outline: none;
+  border: none;
+}
+
+label{
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 100%;
+  color: #212121;
+  margin-bottom: 10px;
+}
+
+h2{
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 100%;
+  color: #212121;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.nameField{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.jobField{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.imgField{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+#title-field{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.modal-btn{
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 100%;
+  color: #ffffff;
+   -webkit-border-radius: 8;
+  -moz-border-radius: 8;
+  border-radius: 8px;
+  background: #333333;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  border: none;
+  margin-top: 10px;
+}
+
+.modal-btn:hover{
+  background: #4d4d4d;
+  text-decoration: none;
+}
 
 footer{
    text-align: center;
@@ -258,7 +328,7 @@ footer{
 }
 .modal.active { display: flex; }
 .modal-content {
-  background: #c6e1ea; 
+  background: #fcf5e5; 
   padding: 2rem; 
   border-radius: 8px; 
   max-width: 90vw; 
@@ -276,6 +346,19 @@ footer{
   max-height: 413px; 
   display: block; 
   margin: 0 auto 1rem; 
+}
+
+#previewImg{
+  border-radius: 8px;
+}
+
+#previewTitle{
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 1.25rem;
+  line-height: 120%;
+  color: #212121;
+  margin-top: 1rem;
 }
 
 .modal-caption {
@@ -363,4 +446,9 @@ footer{
     grid-template-rows: auto;
 
   }
+    .card-section > * img {
+  width: 100%;
+  border-radius: 8px;
+  height: 275px;
+}
 }

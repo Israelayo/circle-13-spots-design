@@ -63,19 +63,22 @@
         <span class="close" data-close="editProfileModal">&times;</span>
         <h2>Edit Profile</h2>
         <form id="editProfileForm" autocomplete="off">
-          <label>
-            Name
+          <div class="nameField">
+          <label>Name</label>
             <input type="text" id="profileName" minlength="2" maxlength="30" required />
           </label>
-          <label>
-            Profession
+          </div>
+
+          <div class="jobField">
+          <label>Profession</label>
             <input type="text" id="profileProfession" minlength="2" maxlength="30" required />
-          </label>
-          <label>
-            Image
+          </div>
+
+          <div class="imgField">
+          <label>Image</label>
             <input type="file" id="profileAvatar" accept="image/*" />
-          </label>
-          <button type="submit" id="saveProfileBtn">Save</button>
+          </div>
+          <button type="submit" id="saveProfileBtn" class="modal-btn">Save</button>
         </form>
       </div>
     </div>
@@ -95,15 +98,16 @@
         <span class="close" data-close="newPostModal">&times;</span>
         <h2>New Post</h2>
         <form id="newPostForm" autocomplete="off">
-          <label>
-            Title
+          <div id="title-field">
+          <label>Title</label>
             <input type="text" id="newPostTitle" minlength="2" maxlength="30" required />
-          </label>
-          <label>
-            Image
+         </div>
+
+          <div class="imgField">
+          <label>Image</label>
             <input type="file" id="newPostImage" accept="image/*" required />
-          </label>
-          <button type="submit" id="createPostBtn" disabled>Create</button>
+         </div>
+          <button type="submit" id="createPostBtn" class="modal-btn">Create</button>
         </form>
       </div>
     </div>
